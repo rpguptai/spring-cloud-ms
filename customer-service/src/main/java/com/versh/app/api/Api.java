@@ -46,7 +46,7 @@ public class Api {
 	
 	@RequestMapping("/customers/{id}")
 	public Customer findById(@PathVariable("id") Integer id) {
-		logger.info(String.format("Customer.findById(%s)", id));
+		System.out.println(String.format("Customer.findById(%s)", id));
 		Customer customer = customers.stream().filter(it -> it.getId().intValue()==id.intValue()).findFirst().get();
 		List<Account> accounts =  accountClient.getAccounts(id);
 		customer.setAccounts(accounts);

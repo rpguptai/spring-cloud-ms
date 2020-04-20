@@ -12,3 +12,24 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 0
+  ReadTimeout: 2000
+  
+logging:
+  level:
+    com.netflix.ribbon: DEBUG
+    com.netflix.hystrix: DEBUG
+
+#Enable for Scenarios 1,2,3
+#feign:
+#  hystrix:
+#    enabled: false
+    
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000

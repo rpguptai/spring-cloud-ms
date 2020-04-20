@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.versh.app.model.Account;
 
-@FeignClient("account-service")
+@FeignClient(value = "account-service", fallback = AccountFallback.class)
 public interface AccountClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/accounts/customer/{customerId}")
